@@ -1,0 +1,37 @@
+<nav class="nav" [attr.aria-label]="i18n.t('a11y.mainNav')">
+  <a routerLink="/" class="brand" (click)="closeMenu()">
+    <span class="brand-mark" aria-hidden="true">SB</span>
+    Santiago Barroso
+  </a>
+
+  <div id="nav-menu" class="menu" [class.is-open]="menuOpen()">
+    @for (link of links; track link.path) {
+      <a
+        class="nav-link"
+        [routerLink]="link.path"
+        routerLinkActive="is-active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: link.exact }"
+        (click)="closeMenu()"
+      >
+        {{ i18n.t(link.label) }}
+      </a>
+    }
+
+    <div class="tools">
+      <app-lang-toggle />
+      <app-theme-toggle />
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="burger"
+    aria-controls="nav-menu"
+    [attr.aria-expanded]="menuOpen()"
+    [attr.aria-label]="menuLabel()"
+    (click)="toggleMenu()"
+  >
+    <app-icon [name]="menuOpen() ? 'x' : 'menu'" [size]="20" />
+  </button>
+</nav>

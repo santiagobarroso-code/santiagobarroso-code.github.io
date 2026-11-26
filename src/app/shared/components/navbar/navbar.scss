@@ -1,0 +1,127 @@
+@use 'tokens' as *;
+
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: block;
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  position: relative;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: $space-4 $container-pad;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-4;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--text-strong);
+  color: var(--bg);
+  font-size: 14px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: 14px;
+}
+
+.nav-link {
+  padding: $space-2 14px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  transition:
+    background-color $dur-fast $ease,
+    color $dur-fast $ease;
+
+  &:hover {
+    color: var(--text);
+  }
+
+  &.is-active {
+    background: var(--chip);
+    color: var(--text);
+    font-weight: 500;
+  }
+}
+
+.tools {
+  margin-left: $space-2;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-md;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@include mobile {
+  .burger {
+    display: inline-flex;
+  }
+
+  .menu {
+    display: none;
+
+    &.is-open {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: $space-1;
+      padding: $space-4 $container-pad $space-6;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  .nav-link {
+    padding: 14px $space-3;
+    font-size: 16px;
+  }
+
+  .tools {
+    margin: $space-2 0 0;
+  }
+}

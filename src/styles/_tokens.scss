@@ -1,0 +1,71 @@
+$font-display: 'Space Grotesk', system-ui, sans-serif; // títulos
+$font-body: 'Inter', system-ui, sans-serif;           // texto general
+$font-mono: 'JetBrains Mono', ui-monospace, monospace; // etiquetas, tecnologías, detalles
+
+// Escala tipográfica (desktop → mobile con clamp) 
+$fs-hero: clamp(48px, 7vw, 72px);
+$fs-h1: clamp(44px, 6vw, 64px);
+$fs-h2: clamp(32px, 4.5vw, 52px);
+$fs-h3: clamp(24px, 3vw, 34px);
+$fs-title-card: 30px;
+$fs-subtitle: 24px;
+$fs-lead: 17px;
+$fs-body: 15px;
+$fs-small: 13px;
+$fs-label: 11px;
+
+$lh-tight: 1;
+$lh-heading: 1.1;
+$lh-body: 1.65;
+$ls-display: -0.04em;
+$ls-heading: -0.02em;
+
+// Espaciado (base 4) 
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-7: 28px;
+$space-8: 32px;
+$space-10: 40px;
+$space-12: 48px;
+$space-18: 72px;
+$space-22: 88px;
+
+$container-max: 1200px;
+$container-pad: 24px;
+$bento-gap: 16px;
+
+// Radios 
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 12px;
+$radius-xl: 14px;
+$radius-tile: 22px;
+$radius-cta: 28px;
+$radius-pill: 999px;
+
+// Breakpoints 
+$bp-mobile: 860px; // por debajo: una columna, menú hamburguesa, sin arte del hero
+
+@mixin mobile {
+  @media (max-width: $bp-mobile) { @content; }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) { @content; }
+}
+
+// Movimiento 
+$ease: ease;
+$dur-fast: 0.2s;
+$dur-base: 0.25s;
+$dur-theme: 0.3s;
+
+// Gradiente de marca 
+$brand-gradient: linear-gradient(135deg, #A78BFA, #38BDF8);
+
+// Texto del botón con gradiente (siempre oscuro, en ambos temas)
+$on-gradient: #101018;

@@ -1,0 +1,11 @@
+<a class="skip-link" href="#contenido" (click)="skipToContent($event)">
+  {{ i18n.t('a11y.skipToContent') }}
+</a>
+
+<app-navbar />
+
+<main id="contenido" #main tabindex="-1" class="main">
+  <router-outlet />
+</main>
+
+<app-footer />

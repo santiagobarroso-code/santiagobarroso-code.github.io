@@ -1,0 +1,13 @@
+<div class="lang-toggle" role="group" [attr.aria-label]="i18n.t('a11y.language')">
+  @for (lang of langs; track lang) {
+    <button
+      type="button"
+      class="lang-btn"
+      [attr.lang]="lang"
+      [attr.aria-pressed]="i18n.lang() === lang"
+      (click)="select(lang)"
+    >
+      {{ lang.toUpperCase() }}
+    </button>
+  }
+</div>

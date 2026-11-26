@@ -1,0 +1,19 @@
+@use 'tokens' as *;
+
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-md;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color $dur-fast $ease;
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
+}
